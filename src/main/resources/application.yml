@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: employee-service
+  datasource:
+    url: jdbc:mariadb://localhost:3306/banking_app
+    username: root
+    password: Password@1
