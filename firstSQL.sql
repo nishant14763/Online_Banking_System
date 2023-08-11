@@ -1,29 +1,11 @@
-CREATE DATABASE IF NOT EXISTS banking_app;
+CREATE DATABASE IF NOT EXISTS bank;
 
-USE banking_app;
+USE bank;
 
-CREATE TABLE IF NOT EXISTS user(user_id INT PRIMARY KEY, first_name VARCHAR(50) NOT NULL, last_name VARCHAR(50) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, mobile VARCHAR(20) NOT NULL, date_of_birth DATE NOT NULL, login_password VARCHAR(60) NOT NULL, transaction_password VARCHAR(60) NOT NULL, addres VARCHAR(500) NOT NULL, aadhar_number CHAR(10) NOT NULL, pan_number CHAR(10) NOT NULL, ocupation VARCHAR(50) NOT NULL);
+CREATE TABLE user(account_number INTEGER PRIMARY KEY,first_name VARCHAR(25) NOT NULL,middle_name VARCHAR(25),last_name VARCHAR(25) NOT NULL,aadhar VARCHAR(12) NOT NULL UNIQUE,pan VARCHAR(10) UNIQUE,dob DATE NOT NULL,primary_address VARCHAR(50) NOT NULL,resdential_address VARCHAR(50) NOT NULL,phone_number VARCHAR(10) NOT NULL,email VARCHAR(30),occupation VARCHAR(50) NOT NULL,admin BOOL);
 
-CREATE TABLE IF NOT EXISTS account(
-  account_number INT PRIMARY KEY,
-  user_id INT,
-  account_balance DECIMAL(15,2) NOT NULL,
-  account_type VARCHAR(20) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user(user_id)
-);
+CREATE TABLE account(account_number INTEGER PRIMARY KEY,FOREIGN KEY(account_number) REFERENCES user(account_number),acc_type ENUM('savings','current','fixed deposit','salary','nri'),user_id VARCHAR(20) NOT NULL,password VARCHAR(20) NOT NULL,transaction_password VARCHAR(20),balance INTEGER);
 
-CREATE TABLE IF NOT EXISTS payee(
-  payee_account_number INT PRIMARY KEY,
-  payee_name VARCHAR(100) NOT NULL,
-  account_number INT,
-  FOREIGN KEY (account_number) REFERENCES account(account_number)
-);
+CREATE TABLE payee(account_number INTEGER PRIMARY KEY,FOREIGN KEY(account_number) REFERENCES user(account_number),to_acc_number INTEGER,FOREIGN KEY(to_acc_number) REFERENCES user(account_number),nick_name VARCHAR(20));
 
-CREATE TABLE IF NOT EXISTS transaction(
-  transaction_id INT NOT NULL,
-  tr_account_number INT NOT NULL,
-  amount INT NOT NULL,
-  transaction_date DATE NOT NULL,
-  transaction_type VARCHAR(10) NOT NULL,
-  FOREIGN KEY (tr_account_number) REFERENCES account(account_number)
-)
+CREATE TABLE transactions(sender INTEGER PRIMARY KEY,FOREIGN KEY(sender) REFERENCES user(account_number),reciver INTEGER NOT NULL,FOREIGN KEY(reciver) REFERENCES user(account_number),timestamp TIMESTAMP NOT NULL,transaction_id VARCHAR(20) UNIQUE NOT NULL,transaction_type ENUM('NEFT','RTGS','IMPS'));

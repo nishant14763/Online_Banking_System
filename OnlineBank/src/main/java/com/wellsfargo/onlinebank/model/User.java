@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class User {
 	@Id
 	@Column(name = "account_number")
-	@Max(value=10)
+	//@Max(value=10)
 	private int accountNumber;
 	@NotNull
 	@Length(min = 1, max = 25)
@@ -37,28 +37,28 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	@NotNull
-	@Max(value=12)
-	@Column(name="aadhar_number")
-	private int aadharNumber;
+	@Length(min=12,max=12)
+	@Column(name="aadhar")
+	private String aadharNumber;
 	@NotNull
-	@Max(value=9)
-	@Column(name="pan_number")
-	private int panNumber;
+	@Length(min=10,max=10)
+	@Column(name="pan")
+	private String panNumber;
 	@NotNull
 	@Column(name="dob")
 	private String dob;////string->date
 	@NotNull
 	@Length(min = 1, max = 250)
-	@Column(name="permanent_address")
+	@Column(name="primary_address")
 	private String permanentAddress;
 	@NotNull
 	@Length(min = 1, max = 250)
-	@Column(name="residential_address")
+	@Column(name="resdential_address")
 	private String residentialAddress;
 	@NotNull
 	@Length(min=10,max=10)
 	@Column(name="phone_number")
-	private int phoneNumber;
+	private String phoneNumber;
 	@Column(name = "email")
 	@Email
 	private String email;
@@ -66,7 +66,7 @@ public class User {
 	@Column(name="occupation")
 	private String occupation;
 	@Column(name="admin")
-	private int isadmin;////bool->intbyte
+	private int isadmin;////bool->intbyte*/
 	
 
 }
