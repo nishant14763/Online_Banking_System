@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: OnlineBank
+  datasource:
+    url: jdbc:mariadb://localhost:3306/bank
+    username: root
+    password: Password@1
