@@ -49,8 +49,8 @@ public class User {
 	private String dob;////string->date
 	@NotNull
 	@Length(min = 1, max = 250)
-	@Column(name="permenent_address")
-	private String permenentAddress;
+	@Column(name="permanent_address")
+	private String permanentAddress;
 	@NotNull
 	@Length(min = 1, max = 250)
 	@Column(name="residential_address")
