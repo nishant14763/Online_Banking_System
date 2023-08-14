@@ -1,16 +1,20 @@
 package com.wellsfargo.onlinebank.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.Length;
-import javax.validation.constraints.Max;
 
 import com.sun.istack.NotNull;
-import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +27,10 @@ import lombok.NoArgsConstructor;
 
 public class User {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "account_number")
-	//@Max(value=10)
-	private int accountNumber;
+	//@Length(min=10,max=10)
+	private long accountNumber;
 	@NotNull
 	@Length(min = 1, max = 25)
 	@Column(name = "first_name")
@@ -38,27 +43,27 @@ public class User {
 	private String lastName;
 	@NotNull
 	@Length(min=12,max=12)
-	@Column(name="aadhar")
+	@Column(name="aadhar_number")
 	private String aadharNumber;
 	@NotNull
 	@Length(min=10,max=10)
-	@Column(name="pan")
+	@Column(name="pan_number")
 	private String panNumber;
 	@NotNull
 	@Column(name="dob")
 	private String dob;////string->date
 	@NotNull
 	@Length(min = 1, max = 250)
-	@Column(name="primary_address")
-	private String permanentAddress;
+	@Column(name="permenent_address")
+	private String permenentAddress;
 	@NotNull
 	@Length(min = 1, max = 250)
-	@Column(name="resdential_address")
+	@Column(name="residential_address")
 	private String residentialAddress;
 	@NotNull
-	@Length(min=10,max=10)
+	//@Length(min=10,max=10)
 	@Column(name="phone_number")
-	private String phoneNumber;
+	private long phoneNumber;
 	@Column(name = "email")
 	@Email
 	private String email;
@@ -66,7 +71,32 @@ public class User {
 	@Column(name="occupation")
 	private String occupation;
 	@Column(name="admin")
-	private int isadmin;////bool->intbyte*/
+	private int isadmin;////bool->intbyte
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="account_number")
+	private Account account;
+
+	public User(@Length(min = 1, max = 25) String firstName, String middleName,
+			@Length(min = 1, max = 25) String lastName, @Length(min = 12, max = 12) String aadharNumber,
+			@Length(min = 10, max = 10) String panNumber, String dob,
+			@Length(min = 1, max = 250) String permenentAddress, @Length(min = 1, max = 250) String residentialAddress,
+			long phoneNumber, @Email String email, String occupation, int isadmin, Account account) {
+		super();
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.aadharNumber = aadharNumber;
+		this.panNumber = panNumber;
+		this.dob = dob;
+		this.permenentAddress = permenentAddress;
+		this.residentialAddress = residentialAddress;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.occupation = occupation;
+		this.isadmin = isadmin;
+		this.account = account;
+	}
 	
 
 }
