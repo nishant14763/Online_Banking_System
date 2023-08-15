@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -38,14 +37,12 @@ public class Transaction {
 	private String transactionType;
 	
 	@JsonProperty
-	@JsonBackReference
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="to_account_number")
 	private Account toAccount;
 	
 	@JsonProperty
-	@JsonBackReference
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="from_account_number")
 	private Account fromAccount;
 }
