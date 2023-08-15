@@ -1,7 +1,15 @@
 package com.example.demo.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,8 +24,18 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class payee {
+public class Payee {
+	@Id
+	@Column(name="payee_id")
+	private int payeeId;
+	@Column(name="payee_account_number")
 	private int payeeAccountNumber;
+	@Column(name="payee_name")
 	private String payeeName;
-	private int accountNumber;
+	
+	@JsonProperty
+	@JsonBackReference
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="account_number")
+	private Account account;
 }

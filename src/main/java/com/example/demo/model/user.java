@@ -1,10 +1,17 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
 import java.sql.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +26,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class user {
+public class User {
 	@Id
 	@Column(name="user_id")
 	private int userId;
@@ -39,12 +46,22 @@ public class user {
 	private String transactionPassword;
 	@Column(name="address")
 	private String address;
-	@Column(name="addhar_number")
-	private String addhar;
+	@Column(name="aadhaar_number")
+	private String aadhaarNumber;
 	@Column(name="pan_number")
-	private String pan;
+	private String panNumber;
 	@Column(name="occupation")
 	private String occupation;
 	@Column(name="is_admin")
 	private boolean isAdmin;
+	
+	@JsonProperty("isAdmin")
+	public boolean getIsAdmin() {
+		return this.isAdmin;
+	}
+	
+	@JsonProperty
+	@JsonManagedReference
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	private List<Account> accounts;
 }
