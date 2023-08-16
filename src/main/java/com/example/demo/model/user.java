@@ -36,7 +36,7 @@ public class User {
 	private String lastName;
 	@Column(name="email")
 	private String email;
-	@Column(name="mobile")
+	@Column(name="mobile",unique=true)
 	private String mobile;
 	@Column(name="date_of_birth")
 	private Date dob;

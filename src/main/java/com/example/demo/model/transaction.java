@@ -28,7 +28,7 @@ import lombok.ToString;
 public class Transaction {
 	@Id
 	@Column(name="transaction_id")
-	private int transaction;
+	private int transactionId;
 	@Column(name="amount")
 	private double amount;
 	@Column(name="transaction_date")

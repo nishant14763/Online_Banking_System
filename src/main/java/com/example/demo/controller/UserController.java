@@ -25,4 +25,6 @@ public class UserController{
 		User u = userRepo.save(user);
 		return new ResponseEntity<User>(u,HttpStatus.CREATED);
 	}
+	
+	
 }
