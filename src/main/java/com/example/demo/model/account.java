@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -30,11 +32,12 @@ import lombok.ToString;
 @ToString
 public class Account {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="account_number")
 	private int accountNumber;
-	@Column(name="account_balance")
+	@Column(name="account_balance",columnDefinition="decimal(15,2) default 0.00")
 	private double accountBalance;
-	@Column(name="account_type")
+	@Column(name="account_type",columnDefinition="varchar(20) default 'Savings' ")
 	private String accountType;
 	
 	@JsonProperty

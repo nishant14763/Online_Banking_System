@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 
 function Login() {
@@ -11,13 +11,18 @@ function Login() {
             <div class="card-text">
               <form>
                 <div class="form-group">
-                  <label for="exampleInputEmail1"> Enter Email address </label>
-                  <input
-                    type="email"
-                    class="form-control form-control-sm"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                  />
+                  <div>
+                    <label for="exampleInputEmail1">
+                      {" "}
+                      Enter Email address{" "}
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control form-control-sm"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Enter Password </label>
