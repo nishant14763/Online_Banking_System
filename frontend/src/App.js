@@ -7,8 +7,13 @@ import CreateAccount from "./components/CreateAccount";
 import Dashboard from "./components/Dashboard"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ResetPassword from "./components/Reset Password";
+import UserList from "./components/UserList";
+import UserDetails from "./components/UserDetails";
+import Sidebar from "./components/Sidebar";
+import Admin from "./components/Admin";
 
 function App() {
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,6 +25,10 @@ function App() {
             <Route path="createAccount" element={<CreateAccount />}></Route>
             <Route path="dashboard" element ={<Dashboard/>}></Route>
             <Route path="resetPassword" element={<ResetPassword />}></Route>
+          	<Route path="UserList" element={<UserList />}></Route>
+          	<Route path="UserDetails" element={<UserDetails />}></Route>
+          	<Route path="Sidebar" element={<Sidebar />}></Route>
+            <Route path="Admin" element={<Admin />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
