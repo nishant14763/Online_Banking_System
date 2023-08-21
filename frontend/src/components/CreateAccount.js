@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CreateAccount.css";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import userService from "../services/userService";
 
 function CreateAccount() {
@@ -11,12 +11,20 @@ function CreateAccount() {
     email: "",
     mobile: "",
     dob: "",
-    loginPassword: "",
-    transactionPassword: "",
+    loginPassword: null,
+    transactionPassword: null,
     address: "",
     aadhaarNumber: "",
     panNumber: "",
     occupation: "",
+    accounts: [
+      {
+        accountType: "",
+      },
+    ],
+  });
+  const [accounts, setAccounts] = useState({
+    accountType: "",
   });
 
   const handleChange = (e) => {
@@ -24,8 +32,27 @@ function CreateAccount() {
     setUser({ ...user, [e.target.name]: value });
   };
 
+  const handleAccountChange = (e) => {
+    setAccounts({ ...accounts, accountType: e.target.value });
+  };
+
+  useEffect(() => {
+    prepUser();
+  }, [accounts]);
+
+  const prepUser = () => {
+    let newaccounts = [...user.accounts];
+    newaccounts[0] = { ...newaccounts[0], accountType: accounts.accountType };
+    console.log(newaccounts);
+    setUser({
+      ...user,
+      accounts: newaccounts,
+    });
+  };
+
   const saveUser = (e) => {
-    e.preventDefaul();
+    e.preventDefault();
+    console.log(user);
     userService
       .create(user)
       .then((response) => {
@@ -160,7 +187,7 @@ function CreateAccount() {
           </div>
           <div class="form-group">
             <label for="Address" class="col-sm-3 control-label">
-              Address*{" "}
+              Address{" "}
             </label>
             <div class="col-sm-9">
               <input
@@ -172,6 +199,24 @@ function CreateAccount() {
                 value={user.address}
                 onChange={(e) => handleChange(e)}
               />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="accountType" class="col-sm-3 control-label">
+              Account Type{" "}
+            </label>
+            <div class="input-group mb-3 col-sm-9">
+              <select
+                class="custom-select col-sm-9"
+                style={{ margin: "0 auto", paddingRight: "1%" }}
+                id="inputGroupSelect02"
+                onChange={(e) => handleAccountChange(e)}
+              >
+                <option selected>Choose...</option>
+                <option value="Savings">Savings</option>
+                <option value="Current">Current</option>
+                <option value="Fixed">Fixed</option>
+              </select>
             </div>
           </div>
           <div class="form-group">
@@ -222,6 +267,7 @@ function CreateAccount() {
               />
             </div>
           </div>
+
           <button
             type="submit"
             class="btn btn-primary btn-block"

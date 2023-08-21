@@ -45,7 +45,7 @@ public class User {
 	private Date dob;
 	@Column(name="login_password")
 	private String loginPassword;
-	@Column(name="transaction_password")
+	@Column(name="transaction_password",columnDefinition="varchar(6) default '000000' ")
 	private String transactionPassword;
 	@Column(name="address")
 	private String address;
