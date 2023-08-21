@@ -1,30 +1,38 @@
 import React from 'react';
+import axios from 'axios';
 
 function UserProfile() {
-    return (
-        <div>
+  const [post, setPost] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get("http://localhost:8081/users/1").then((response) => {
+      setPost(response.data);
+    });
+  }, []);
+
+  if (!post) return null;
+
+  return (
+    <div>
             <h2>User Profile</h2>
             <table>
                 <tr>
-                    <td>Name:</td>
+                    <td>Name: {post.firstName}</td>
                 </tr>
                 <tr>
-                    <td>Mobile No:</td>
+                    <td>Mobile No: {post.mobile}</td>
                 </tr>
                 <tr>
-                    <td>Email Id:</td>
+                    <td>Email Id: {post.email}</td>
                 </tr>
                 <tr>
-                    <td>Aadhar No:</td>
+                    <td>Aadhar No: {post.aadhaarNumber}</td>
                 </tr>
                 <tr>
-                    <td>DOB:</td>
+                    <td>DOB: {post.dob}</td>
                 </tr>
                 <tr>
-                    <td>Residential Address:</td>
-                </tr>
-                <tr>
-                    <td>Permanent Address:</td>
+                    <td>Residential Address: {post.address}</td>
                 </tr>
 
             </table>
@@ -32,8 +40,7 @@ function UserProfile() {
             <button>Update Details</button>
             
         </div>
-
-    );
+  );
 }
 
 export default UserProfile;
