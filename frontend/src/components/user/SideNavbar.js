@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCreditCard, faFileAlt, faIdCard, faUser, faExchangeAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard, faFileAlt, faIdCard, faUser, faExchangeAlt, faUserPlus, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import './SideNavbar.css'; // Add your styling here
 
 const SideNavbar = () => {
@@ -42,6 +42,12 @@ const SideNavbar = () => {
           <NavLink to="/profile/payee" activeClassName="active">
             <FontAwesomeIcon icon={faUserPlus} />
             Add Payee
+          </NavLink>
+        </li>
+        <li class='log'>
+          <NavLink to="/login" activeClassName="active">
+            <FontAwesomeIcon icon={faPowerOff} />
+            Logout
           </NavLink>
         </li>
       </ul>
