@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import "./NavBar.css"
 import { Route, Routes } from 'react-router-dom';
-import AccountSummary from './AccountSummary';
-import ChangeCredentials from './ChangeCredentials';
-import UserProfile from './UserProfile';
-import AccountStatement from './AccountStatement';
-import FundTransfer from './FundTransfer';
-import AddPayee from './AddPayee';
+import AccountSummary from './user/AccountSummary';
+import ChangeCredentials from './user/ChangeCredentials';
+import UserProfile from './user/UserProfile';
+import AccountStatement from './user/AccountStatement';
+import FundTransfer from './user/FundTransfer';
+import AddPayee from './user/AddPayee';
 
 function NavBar() {
     const [active, setActive] = useState("account-summary");

@@ -1,0 +1,35 @@
+.side-navbar {
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(113, 113, 220);
+    color: black;
+    padding-top: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    vertical-align: top;
+    text-align: center;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  a.active {
+    background-color: rgb(150, 150, 219);
+  }
+  
+  svg {
+    margin-right: 10px;
+  }
+  
