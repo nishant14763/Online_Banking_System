@@ -1,0 +1,27 @@
+.registerForm {
+  width: 200%;
+
+  max-width: 400px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: rgb(113, 113, 220);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+h6 a{
+    color:  rgb(113, 113, 220);
+    text-decoration: underline;
+}
