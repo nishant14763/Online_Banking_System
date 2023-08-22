@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -39,7 +40,7 @@ public class UserController{
 	}
 	
 	@GetMapping("/account/{id}")
-	public ResponseEntity<Optional<User> > findUserByAccountId(@PathVariable("id") int id){
+	public ResponseEntity<Optional<User> > findUserByAccountId(@PathVariable("id") String id){
 		Account account = accountRepo.findById(id).orElse(null);
 		if(account!=null) {
 			User u = account.getUser();
@@ -56,8 +57,14 @@ public class UserController{
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<User> > findUserById(@PathVariable("id") int id){
+	public ResponseEntity<Optional<User> > findUserById(@PathVariable("id") String id){
 		Optional<User> inOptional=userRepo.findById(id);
 		return ResponseEntity.ok(inOptional);
+	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<Optional<List<User> > > findAllUsers(){
+		Optional<List<User> > ou=Optional.of(userRepo.findAll());
+		return ResponseEntity.ok(ou);
 	}
 }

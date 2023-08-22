@@ -7,10 +7,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,9 +31,10 @@ import lombok.ToString;
 @ToString
 public class User {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GenericGenerator(name="sequence_user_id", strategy="com.example.demo.idgenerators.UserIdGenerator" )
+	@GeneratedValue(generator = "sequence_user_id")
 	@Column(name="user_id")
-	private int userId;
+	private String userId;
 	@Column(name="first_name")
 	private String firstName;
 	@Column(name="last_name")
@@ -57,10 +59,17 @@ public class User {
 	private String occupation;
 	@Column(name="is_admin")
 	private boolean isAdmin;
+	@Column(name="is_approved")
+	private boolean isApproved;
 	
 	@JsonProperty("isAdmin")
 	public boolean getIsAdmin() {
 		return this.isAdmin;
+	}
+	
+	@JsonProperty("isApproved")
+	public boolean getIsApproved() {
+		return this.isApproved;
 	}
 	
 	@JsonProperty

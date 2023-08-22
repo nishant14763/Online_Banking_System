@@ -26,7 +26,7 @@ public class AccountController{
 
 
 	@GetMapping("/{accountNumber}")
-	public ResponseEntity<Optional<Account>> findAccountById(@PathVariable("accountNumber") int accountNumber){
+	public ResponseEntity<Optional<Account>> findAccountById(@PathVariable("accountNumber") String accountNumber){
 		Optional<Account> inOptional=accountRepo.findById(accountNumber);
 		return ResponseEntity.ok(inOptional);
 	}

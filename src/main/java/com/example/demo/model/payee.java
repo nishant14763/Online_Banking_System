@@ -32,7 +32,7 @@ public class Payee {
 	@Column(name="payee_id")
 	private int payeeId;
 	@Column(name="payee_account_number")
-	private int payeeAccountNumber;
+	private String payeeAccountNumber;
 	@Column(name="payee_name")
 	private String payeeName;
 	
