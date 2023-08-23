@@ -11,7 +11,7 @@ import UserList from "./components/UserList";
 import UserDetails from "./components/UserDetails";
 import Sidebar from "./components/Sidebar";
 import Admin from "./components/Admin";
-import Home from "./components/Home/Home";
+import Customer from "./components/Home/Customer";
 
 import AccountSummary from "./components/user/AccountSummary.js";
 import AccountStatement from "./components/user/AccountStatement.js";
@@ -20,6 +20,7 @@ import UserProfile from "./components/user/UserProfile.js";
 import FundTransfer from "./components/user/FundTransfer";
 import AddPayee from "./components/user/AddPayee";
 import SideNavbar from "./components/user/SideNavbar";
+import Home from "./components/Home/Home";
 
 
 
@@ -32,8 +33,8 @@ function App() {
   
           <Route path="/">
             <Route index element={<Home />}></Route>
+            <Route path="customer" element={<Customer />}></Route>
             <Route path="login" element={<Login />}></Route>
-            <Route path="register" element={<Register />}></Route>
             <Route path="createAccount" element={<CreateAccount />}></Route>
             <Route path="dashboard" element ={<Dashboard/>}></Route>
             <Route path="resetPassword" element={<ResetPassword />}></Route>
