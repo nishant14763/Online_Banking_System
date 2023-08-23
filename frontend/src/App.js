@@ -21,6 +21,7 @@ import FundTransfer from "./components/user/FundTransfer";
 import AddPayee from "./components/user/AddPayee";
 import SideNavbar from "./components/user/SideNavbar";
 import Home from "./components/Home/Home";
+import AdminHome from "./components/admin/AdminHome";
 
 
 
@@ -41,14 +42,18 @@ function App() {
           	<Route path="UserList" element={<UserList />}></Route>
           	<Route path="UserDetails" element={<UserDetails />}></Route>
           	<Route path="Sidebar" element={<Sidebar />}></Route>
-            <Route path="Admin" element={<Admin />}></Route>
-
+           
+           {/* Profile Routes */}
             <Route path="profile/account-summary" element={<SideNavbar />}></Route>
             <Route path="profile/statement" element={<AccountStatement />}></Route>
             <Route path="profile/change-id" element={<ChangeUserId />}></Route>
             <Route path="profile/profile" element={<UserProfile />}></Route>
             <Route path="profile/transfer" element={<FundTransfer />}></Route>
             <Route path="profile/payee" element={<AddPayee />}></Route>
+
+          {/* Admin Routes */}
+            <Route path="Admin" element={<Admin />}></Route>
+            <Route path="Admin/dashboard" element={<AdminHome />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

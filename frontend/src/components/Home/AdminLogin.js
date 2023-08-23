@@ -4,12 +4,14 @@ import bankImage from '../../assets/bank3D.png';
 import userService from '../../services/userService';
 import AdminDashboard from '../AdminDashboard';
 import UserProfile from '../user/UserProfile';
+import { useNavigate } from "react-router-dom";
 
 
 const AdminLogin = () =>{
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState("start");
+  const navigate = useNavigate();
   const handleLogin = () => {
     userService
       .get(userID)
@@ -53,7 +55,7 @@ const AdminLogin = () =>{
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit" onClick={()=>navigate("/Admin/dashboard")} >Login</button>
         </form>
     </div>
     </div>
