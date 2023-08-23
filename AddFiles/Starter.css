@@ -1,0 +1,24 @@
+.Main-heading{
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.user-card{
+    font-family: 'Arial',sans-serif;
+    font-size: medium;
+}
+
+.card-layout-container{
+    margin-top: 6%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.card-layout-container .card-image{
+    height:400px;
+    object-fit:cover;
+}
+.navbar{
+    background-color:lightgreen;
+}
+
