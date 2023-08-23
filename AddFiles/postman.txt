@@ -1,0 +1,16 @@
+{
+    "firstName": "john",
+    "lastName": "doe",
+    "email":"xtq@abd.com",
+    "mobile":"0234567851",
+    "dob": "2000-12-24",
+    "loginPassword": "Password",
+    "transactionPassword": "123456",
+    "address":"west street",
+    "aadhaarNumber": "0134567990",
+    "panNumber": "1254517899",
+    "occupation": "baker",
+    "accounts":[{
+        "accountType":"savings"
+        }]
+}
