@@ -38,7 +38,7 @@ function Home() {
                 alt="Image 1"
               />
               <Card.Body>
-                <button type="submit">
+                <button type="submit" onClick={() => navigate("/Admin")}>
                   Admin
                 </button>
               </Card.Body>

@@ -10,7 +10,7 @@ import ResetPassword from "./components/Reset Password";
 import UserList from "./components/UserList";
 import UserDetails from "./components/UserDetails";
 import Sidebar from "./components/Sidebar";
-import Admin from "./components/Admin";
+import Admin from "./components/Home/AdminLogin";
 import Customer from "./components/Home/Customer";
 
 import AccountSummary from "./components/user/AccountSummary.js";

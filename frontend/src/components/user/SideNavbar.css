@@ -4,6 +4,7 @@
     height: 100vh;
     background-color: rgb(113, 113, 220);
     padding-top: 20px;
+    position: fixed;
   }
   
   ul {
