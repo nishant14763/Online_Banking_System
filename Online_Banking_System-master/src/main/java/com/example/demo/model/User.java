@@ -1,15 +1,21 @@
 package com.example.demo.model;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -94,12 +100,18 @@ public class User {
 	@Column(name="is_admin")
 	@NotNull
 	@ColumnDefault("0")
-	private boolean isAdmin;
+	private int isAdmin;
 	
-	public User(String userId, String firstName,String lastName, String email, String mobile, Date dob, String loginPassword, String transactionPassword, String address, 
-			String aadharNumber,String panNumber, boolean isAdmin) {
+	@JsonProperty
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles = new HashSet<>();
+	
+	public User(String userId, String firstName,String lastName, String email, String mobile, Date dob, String loginPassword, 
+			String transactionPassword, String address, 
+			String aadharNumber,String panNumber,String occupation, int isAdmin) {
 		super();
-		this.userId=UUID.randomUUID().toString();
+		this.userId=userId;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.email=email;
@@ -116,7 +128,7 @@ public class User {
 		
 	}
 	@JsonProperty("isAdmin")
-	public boolean getIsAdmin() {
+	public int getIsAdmin() {
 		return this.isAdmin;
 	}
 	
