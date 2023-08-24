@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import Homepage from "./components/Homepage";
 import Login from "./components/Home/Login";
 import Register from "./components/Home/Register";
-import CreateAccount from "./components/CreateAccount";
+import CreateAccount from "./components/Home/CreateAccount";
 import Dashboard from "./components/Dashboard"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ResetPassword from "./components/Reset Password";
@@ -42,7 +42,9 @@ function App() {
           	<Route path="UserList" element={<UserList />}></Route>
           	<Route path="UserDetails" element={<UserDetails />}></Route>
           	<Route path="Sidebar" element={<Sidebar />}></Route>
-           
+            
+            <Route path="create-account" element={<CreateAccount/>}></Route>
+
            {/* Profile Routes */}
             <Route path="profile/account-summary" element={<SideNavbar />}></Route>
             <Route path="profile/statement" element={<AccountStatement />}></Route>
