@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./CreateAccount.css";
 import { json, useNavigate } from "react-router-dom";
-import userService from "../services/userService";
+import userService from "../../services/userService";
+import bankImage from '../../assets/bank3D.png';
 
 function CreateAccount() {
   const navigate = useNavigate();
@@ -64,7 +65,14 @@ function CreateAccount() {
       });
   };
   return (
-    <div>
+    <div className="homePage">
+     <div>
+        <div className='imageContainer'>
+            <img src={bankImage} alt="Home Page Photo" />
+        </div>
+      </div> 
+   
+      {/* Form Code Right*/}
       <div class="container">
         <form class="form-horizontal" role="form">
           <h2>Create Account</h2>
@@ -278,6 +286,7 @@ function CreateAccount() {
         </form>
       </div>
     </div>
+     
   );
 }
 
