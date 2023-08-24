@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Home/Login";
 import Register from "./components/Home/Register";
 import CreateAccount from "./components/Home/CreateAccount";
-import Dashboard from "./components/Dashboard"
+import Dashboard from "./components/Dashboard";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ResetPassword from "./components/Reset Password";
 import UserList from "./components/UserList";
@@ -35,21 +35,27 @@ function App() {
             <Route path="createAccount" element={<CreateAccount />}></Route>
             <Route path="dashboard" element={<Dashboard />}></Route>
             <Route path="resetPassword" element={<ResetPassword />}></Route>
-          	<Route path="UserList" element={<UserList />}></Route>
-          	<Route path="UserDetails" element={<UserDetails />}></Route>
-          	<Route path="Sidebar" element={<Sidebar />}></Route>
-            
-            <Route path="create-account" element={<CreateAccount/>}></Route>
+            <Route path="UserList" element={<UserList />}></Route>
+            <Route path="UserDetails" element={<UserDetails />}></Route>
+            <Route path="Sidebar" element={<Sidebar />}></Route>
 
-           {/* Profile Routes */}
-            <Route path="profile/account-summary" element={<SideNavbar />}></Route>
-            <Route path="profile/statement" element={<AccountStatement />}></Route>
+            <Route path="create-account" element={<CreateAccount />}></Route>
+
+            {/* Profile Routes */}
+            <Route
+              path="profile/account-summary"
+              element={<AccountSummary />}
+            ></Route>
+            <Route
+              path="profile/statement"
+              element={<AccountStatement />}
+            ></Route>
             <Route path="profile/change-id" element={<ChangeUserId />}></Route>
             <Route path="profile/profile" element={<UserProfile />}></Route>
             <Route path="profile/transfer" element={<FundTransfer />}></Route>
             <Route path="profile/payee" element={<AddPayee />}></Route>
 
-          {/* Admin Routes */}
+            {/* Admin Routes */}
             <Route path="Admin" element={<Admin />}></Route>
             <Route path="Admin/dashboard" element={<AdminHome />}></Route>
           </Route>
