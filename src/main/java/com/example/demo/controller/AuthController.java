@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -91,6 +92,7 @@ public class AuthController {
       }
 
       @PostMapping("/signup")
+      @PreAuthorize("hasRole('ADMIN')")
       public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (userRepository.existsById(signUpRequest.getUserId()) && userRepository.findById(signUpRequest.getUserId()).orElse(null).getIsApproved()) {
           return ResponseEntity
@@ -98,8 +100,10 @@ public class AuthController {
               .body(new MessageResponse("Error: Username is already taken!"));
         }
 
-        // Create new user's account
         User user = userRepository.findById(signUpRequest.getUserId()).orElse(null);
+        if(user==null) {
+        	return ResponseEntity.badRequest().body(new MessageResponse("Error: No such user exists"));
+        }
         Set<Role> roles = new HashSet<>();
 
         if (!signUpRequest.isAdmin()) {
@@ -113,7 +117,6 @@ public class AuthController {
                 roles.add(userRole);
         }
         user.setRoles(roles);
-        user.setLoginPassword(encoder.encode(signUpRequest.getLoginPassword()));
         user.setApproved(true);
         userRepository.save(user);
 

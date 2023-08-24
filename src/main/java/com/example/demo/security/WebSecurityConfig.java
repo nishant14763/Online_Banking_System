@@ -65,6 +65,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
           auth.antMatchers("/auth/**").permitAll()
               .antMatchers("/test/**").permitAll()
               .antMatchers("/users/**").permitAll()
+              .antMatchers("/transactions/**").permitAll()
               .anyRequest().authenticated()
         );
     

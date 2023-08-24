@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,18 +34,21 @@ public class TransactionController{
 	}
 
 	@PostMapping
+	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction){
 		Transaction t =transactionRepo.save(transaction);
 		return new ResponseEntity<Transaction>(t,HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/all/{accountNumber}")
+	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Optional<List<Transaction> > > getAllTransactionsforAccountNumber(@PathVariable("accountNumber") String accountNumber){
 		List<Transaction> lt=transactionRepo.findAllByAccountNumber(accountNumber);
 		return ResponseEntity.ok(Optional.of(lt));
 	}
 	
 	@GetMapping("/all/user/{id}")
+	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Optional<List<Transaction> > > getAllTransactionsforUser(@PathVariable("id") String id){
 		User u =userRepo.findById(id).orElse(null);
 		if(u!=null) {
