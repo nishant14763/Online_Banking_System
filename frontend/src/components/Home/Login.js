@@ -119,6 +119,7 @@ import bankImage from '../../assets/bank3D.png';
 import userService from '../../services/userService';
 import AdminDashboard from '../AdminDashboard';
 import UserProfile from '../user/UserProfile';
+import SideNavbar from '../user/SideNavbar';
 
 
 const Login = () =>{
@@ -188,7 +189,7 @@ const Login = () =>{
       } else if (status == "admin") {
         return <AdminDashboard />;
       } else if (status == "user") {
-        return <UserProfile />;
+        return <SideNavbar />;
       } else {
         return (
           <div style={{ textAlign: "center", position: "center" }}>
