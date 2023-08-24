@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Account;
 import com.example.demo.model.Transaction;
 import com.example.demo.model.User;
+import com.example.demo.repository.AccountRepo;
 import com.example.demo.repository.TransactionRepo;
 import com.example.demo.repository.UserRepo;
 
@@ -26,16 +27,30 @@ import com.example.demo.repository.UserRepo;
 public class TransactionController{
 	private final TransactionRepo transactionRepo;
 	private final UserRepo userRepo;
+	private final AccountRepo accountRepo;
 
-	public TransactionController(TransactionRepo transactionRepo, UserRepo userRepo) {
+	public TransactionController(TransactionRepo transactionRepo, UserRepo userRepo, AccountRepo accountRepo) {
 		super();
 		this.transactionRepo = transactionRepo;
 		this.userRepo = userRepo;
+		this.accountRepo = accountRepo;
 	}
 
 	@PostMapping
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction){
+		Account fromAccount = transaction.getFromAccount();
+		Account toAccount = transaction.getToAccount();
+		if(fromAccount.getAccountBalance()<transaction.getAmount())
+		{
+			return null;
+		}
+		else {
+			fromAccount.setAccountBalance(fromAccount.getAccountBalance()-transaction.getAmount());
+			toAccount.setAccountBalance(toAccount.getAccountBalance()+transaction.getAmount());
+			accountRepo.save(fromAccount);
+			accountRepo.save(toAccount);
+		}
 		Transaction t =transactionRepo.save(transaction);
 		return new ResponseEntity<Transaction>(t,HttpStatus.CREATED);
 	}
