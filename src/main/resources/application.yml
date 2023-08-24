@@ -22,3 +22,6 @@ spring:
         auth: true
         starttls.enable: true
         ssl.trust: smtp.gmail.com
+app:
+ jwtSecret: ======================BezKoder=Spring===========================
+ jwtExpirationMs: 86400000
