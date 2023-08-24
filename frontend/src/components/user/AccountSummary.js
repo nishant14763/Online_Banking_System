@@ -2,6 +2,7 @@ import React from "react";
 import SideNavbar from "./SideNavbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AccountSummary.css";
+import "react-bootstrap";
 
 const AccountSummary = () => {
   const users = [
@@ -24,7 +25,7 @@ const AccountSummary = () => {
       <SideNavbar />
       <h1 className="account-summary-heading">Account Summary</h1>
       <div className="account-table">
-        <table class="table" className="table">
+        <table class="table">
           <thead class="thead-dark">
             <tr>
               <th>SLNO</th>
