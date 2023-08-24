@@ -1,0 +1,101 @@
+*text enclosed in {} in the api path signifies a variable value.
+
+Base URL- http://localhost:8081
+
+Users api-
+
+user object - {
+  "userId": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "mobile": "string",
+  "dob": "2023-08-23T11:21:42.849Z",
+  "loginPassword": "string",
+  "transactionPassword": "string",
+  "address": "string",
+  "aadhaarNumber": "string",
+  "panNumber": "string",
+  "occupation": "string",
+  "accounts": [
+    {
+      "accountNumber": "string",
+      "accountBalance": 0,
+      "accountType": "string",
+      "user": "string",
+      "payees": [
+        {
+          "payeeId": 0,
+          "payeeAccountNumber": "string",
+          "payeeName": "string",
+          "account": "string"
+        }
+      ]
+    }
+  ],
+  "isAdmin": boolean,
+  "isApproved": boolean
+}
+
+Post Mappings-
+1. (/users) - Takes a user object in json format and creates a new user in the database with that object and returns the created object along with an http status of created.
+
+
+Get Mappings-
+1. (/users/account/{id}) - Here id is the variable representing an accountNumber. This api doesn't take any further arguments and returns a user object which contains the account
+with the provided account number if present and null otherwise.
+
+2. (/users/{id}) - Here id is the variable representing the user ID. This api doesn't take any further arguments and returns a user object with the corresponding userId if present and null
+otherwise.
+
+3. (/users/all) - This api doesn't take any further arguments and returns a list of all the user objects in the database.
+
+
+
+Delete Mappings-
+1. (/users/{id}) - Here id is the variable representing the user Id. This api doesn't take any further arguments and deletes the user
+with the provided userId from the database and returns an http status gone.
+
+
+
+Put Mappings-
+1. (/users) - This api takes a user object as an argument and updates the user withe the same user id in the database while returning the
+updated user.
+
+2. (/users/createAccount/{id}) - Here id is the variable representing the user id. This api takes an account object and creates an account like the one provided
+under the user with the provided user id.
+
+3. (/users/createAccount/{id}) - Here id is the variable representing the user id. This api takes an account object and creates an account like the one provided
+under the user with the provided user id.
+
+4. (/users/deleteAccount/{id}) - Here id is the variable representing the user id. This api takes an account object and deletes an account like the one provided
+under the user with the provided user id.
+
+5. (/users/deletePayee/{accountNumber}) - Here account Number is the variable respresenting an account Number in the database. This api takes a payee
+object as an argument and deletes the payee under the account with the given account Number.
+
+6. (/users/createPayee/{accountNumber}) - Here account Number is the variable respresenting an account Number in the database. This api takes a payee
+object as an argument and creates the payee under the account with the given account Number.
+
+
+Transaction api-
+
+transaction Object-
+{
+  "transactionId": 0,
+  "amount": 0,
+  "transactionDate": "2023-08-23T11:24:24.067Z",
+  "transactionType": "string",
+  "toAccount": Account,
+  "fromAccount": Account
+}
+
+Post Mappings-
+1. (/transactions) - This api takes a transaction object and creates a transaction in the database and returns the created transaction and an http status created
+
+
+
+Get Mappings-
+1. (/transactions/all/{accountNumber}) - This api doesn't take any further argument and returns a list of all transactions associated with the given account Number.
+
+2. (/transactions/all/user/{id}) -  This api doesn't take any further argument and returns a list of all transactions associated with the given user id.

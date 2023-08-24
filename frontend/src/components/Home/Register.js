@@ -227,6 +227,7 @@ const Register = () =>{
         />
         <button type="submit">Sign Up</button>
         <h6><a href="/Login">Already have an account? Login in here</a></h6>
+        <h6><a href="/create-account">Don't have an account with the bank? Create here</a></h6>
       </form>
     </div>
   )
