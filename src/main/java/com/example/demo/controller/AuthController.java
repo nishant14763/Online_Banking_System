@@ -92,7 +92,7 @@ public class AuthController {
       }
 
       @PostMapping("/signup")
-      @PreAuthorize("hasRole('ADMIN')")
+      //@PreAuthorize("hasRole('ADMIN')")
       public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (userRepository.existsById(signUpRequest.getUserId()) && userRepository.findById(signUpRequest.getUserId()).orElse(null).getIsApproved()) {
           return ResponseEntity
