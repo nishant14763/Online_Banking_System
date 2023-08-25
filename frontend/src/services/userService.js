@@ -16,4 +16,8 @@ const get = (id) => {
   return httpClient.get(`/users/${id}`);
 };
 
-export default { create, getByAccountId, update, get };
+const getAll = () => {
+  return httpClient.get(`/users/all`);
+}
+
+export default { create, getByAccountId, update, get, getAll };

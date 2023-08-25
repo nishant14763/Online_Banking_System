@@ -1,8 +1,20 @@
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "http://localhost:8081",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+
+function handleToken (jwtToken) {
+  return(
+    {
+      baseURL: "http://localhost:8081",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + jwtToken
+
+      }
+      
+    }
+  )
+
+}
+export default axios.create((jwtToken) => handleToken(jwtToken)
+
+ );
