@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS USER(
 	email VARCHAR(100) UNIQUE NOT NULL, 
 	mobile VARCHAR(20) UNIQUE NOT NULL, 
 	date_of_birth DATE NOT NULL, 
-	login_password VARCHAR(30), 
+	login_password VARCHAR(500), 
 	transaction_password VARCHAR(6), 
 	address VARCHAR(500) NOT NULL, 
 	aadhaar_number VARCHAR(10) UNIQUE NOT NULL, 
@@ -45,3 +45,11 @@ CREATE TABLE IF NOT EXISTS transaction(
   FOREIGN KEY (to_account_number) REFERENCES account(account_number),
   FOREIGN KEY (from_account_number) REFERENCES account(account_number)
 );
+
+CREATE TABLE if NOT EXISTS role(
+ role_id INT PRIMARY KEY Auto_increment,
+ role_name ENUM('ROLE_USER','ROLE_ADMIN') NOT NULL
+);
+
+INSERT INTO role VALUES (1,'ROLE_USER');
+INSERT INTO role VALUES (2,'ROLE_ADMIN');
