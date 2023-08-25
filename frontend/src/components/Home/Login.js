@@ -113,20 +113,23 @@
 
 // export default Login;
 
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import './Register.css';
 import bankImage from '../../assets/bank3D.png';
 import userService from '../../services/userService';
 import AdminDashboard from '../AdminDashboard';
 import UserProfile from '../user/UserProfile';
 import SideNavbar from '../user/SideNavbar';
+import { useNavigate } from 'react-router-dom';
 
 
-const Login = () =>{
+function Login() {
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState("start");
-  const handleLogin = () => {
+  const navigate=useNavigate();
+ 
+  const handleLogin = (e) => {
     userService
       .get(userID)
       .then((user) => {
@@ -156,7 +159,7 @@ const Login = () =>{
     <div className='formContainer'>
     <div className="registerForm">
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form>
         <input
           type="integer"
           placeholder="UserID"
@@ -169,7 +172,7 @@ const Login = () =>{
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="button" onClick={(e)=>handleLogin(e)}>Login</button>
         <h6><a href="/customer">Don't have an online banking account? Register here</a></h6>
         <h6><a href="/create-account">Don't have an account with the bank? Create here</a></h6>
       </form>
@@ -190,7 +193,7 @@ const Login = () =>{
       } else if (status == "admin") {
         return <AdminDashboard />;
       } else if (status == "user") {
-        return <SideNavbar />;
+        navigate("/profile/account-summary"); 
       } else {
         return (
           <div style={{ textAlign: "center", position: "center" }}>
