@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    color: white
+}
+
+#title {
+    color: white;
+}
+
+.sec{
+    background-image: url(back.png);
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+div .fbox{
+    position:relative;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.85;
+    border-radius: 20px;
+    border : 2px solid white;
+}
+.f-value h2{
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+}
+.login-input{
+    position: relative;
+    margin: 30px 0px;
+    width: 310px;
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+.login-input label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    pointer-events: none;
+}
+input:focus ~label,
+input:valid ~label{
+    top: 5px;
+}
+.login-input input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: white;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+}
+.forget{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+}
+.forget  a{
+    font-weight: 600;
+    margin-right: 3px;
+    text-decoration: none;
+    color: rgb(113,113,220);
+}
+.forget  a:hover{
+    text-decoration: underline;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: rgb(113, 113, 220);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+}
+.register{
+    font-size: .9em;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register p a{
+    font-weight: 600;
+    color: rgb(113,113,220);
+}
+.register p a:hover{
+    text-decoration: underline;
+    color: rgb(33, 33, 247);
+}
+
+.error-text {
+    color: red;
+}
+
+.card {
+    --bs-card-border-width: 0px;
+}
+
+
+.card-title {
+    color: white;
+}
+
+#para {
+    color: white;
+}
+
+#blk {
+    color: black;
+}
