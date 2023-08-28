@@ -323,7 +323,7 @@ const Register = () => {
                                 </select>
                             </div>
                             <div className='input4'>
-                                <label>Source Of Income*</label>
+                                <label id="blk">Source Of Income*</label>
 
                                 <select required value={sourceOfIncome} className="form-select" aria-label="Source of  Income" onChange={(e) => {
                                     setsourceOfIncome(e.target.value);

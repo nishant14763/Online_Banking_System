@@ -77,7 +77,7 @@ function TransactionForm() {
             <Container style={{ marginTop: "80px" }}>
                 <Row>
                     <Col className='col-12'>
-                        <h3>ONLINE TRANSFER</h3>
+                        <h3 id="blk">ONLINE TRANSFER</h3>
                     </Col>
 
                     <Col className='col-md-6 col-sm-12'>

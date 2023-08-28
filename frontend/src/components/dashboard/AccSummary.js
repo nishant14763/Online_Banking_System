@@ -55,10 +55,10 @@ function AccSummary() {
                                 fetchTransaction(val);
                             }
                         }}>
-                            <option value="sel" key="sel">Select Account</option>
+                            <option value="sel" key="sel" id="blk">Select Account</option>
                             {accountDetails.map((ac) => {
                                 return (
-                                    <option value={ac.accountNo} key={ac.accountNo}>{ac.accountNo}</option>
+                                    <option value={ac.accountNo} key={ac.accountNo} id="blk">{ac.accountNo}</option>
                                 );
                             })
                             }

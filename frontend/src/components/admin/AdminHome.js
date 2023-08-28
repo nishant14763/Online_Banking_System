@@ -49,8 +49,8 @@ function AdminHome() {
                     <AccordionItem key={index} title={user.username} className='mt-4'>
                       <AccordionHeader targetId={index.toString()}>
                         <h4>{user.username}</h4>
-                        <Badge className='ms-4' color={user.locked && user.active ? "success": "danger"}>
-    {user.active != true ? "Account Inactive" : user.locked ? "Account Locked" : "Account Active"}
+                        <Badge className='ms-4' color={user.locked && user.active ? "success": "success"}>
+    {user.active != true ? "Account Active" : user.locked ? "Account Locked" : "Account Active"}
   </Badge>
  
                       </AccordionHeader>

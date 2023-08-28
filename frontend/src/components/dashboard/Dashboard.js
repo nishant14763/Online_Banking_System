@@ -108,9 +108,9 @@ function Dashboard() {
                 value={selectedOption}
                 onChange={handleOptionChange}
               >
-                <option value="sel">Select account type</option>
+                <option value="sel" id="blk">Select account type</option>
                 {options.map((key) => (
-                  <option key={key} value={key}>
+                  <option key={key} value={key} id="blk">
                     {accountTypes[key]}
                   </option>
                 ))}
