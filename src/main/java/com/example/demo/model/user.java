@@ -78,6 +78,27 @@ public class User {
 		return this.isApproved;
 	}
 	
+	public User(String firstName, String lastName, String email, String mobile, Date dob,
+			String loginPassword, String transactionPassword, String address, String aadhaarNumber, String panNumber,
+			String occupation, boolean isAdmin, boolean isApproved, List<Account> accounts, Set<Role> roles) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.mobile = mobile;
+		this.dob = dob;
+		this.loginPassword = loginPassword;
+		this.transactionPassword = transactionPassword;
+		this.address = address;
+		this.aadhaarNumber = aadhaarNumber;
+		this.panNumber = panNumber;
+		this.occupation = occupation;
+		this.isAdmin = isAdmin;
+		this.isApproved = isApproved;
+		this.accounts = accounts;
+		this.roles = roles;
+	}
+
 	@JsonProperty
 	@JsonManagedReference
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
