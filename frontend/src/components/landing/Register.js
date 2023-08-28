@@ -170,104 +170,104 @@ const Register = () => {
                     <form onSubmit={submitActionHandler}>
                         <h2 className='r'>Registeration Form</h2>
                         <div className='reg-form'>
-                            <h3>Personal Details</h3>
-                            <p>Fields marked * are complusary</p>
+                            <h3 id="blk">Personal Details</h3>
+                            <p id="blk">Fields marked * are complusary</p>
                             <div className='input8'>
-                                <label>Title*</label>
-                                <input type="text" value={title} onChange={titleChangeHandler} required></input>
+                                <label id="blk">Title*</label>
+                                <input type="text" value={title} onChange={titleChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>First Name*</label>
-                                <input type="text" value={firstName} onChange={firstNameChangeHandler} required></input>
+                                <label id="blk">First Name*</label>
+                                <input type="text" value={firstName} onChange={firstNameChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>Middle Name</label>
-                                <input type="text" value={middleName} onChange={middleNameChangeHandler} required></input>
+                                <label id="blk">Middle Name*</label>
+                                <input type="text" value={middleName} onChange={middleNameChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>Last Name*</label>
+                                <label id="blk">Last Name*</label>
 
-                                <input type="text" value={lastName} onChange={lastNameChangeHandler} required></input>
+                                <input type="text" value={lastName} onChange={lastNameChangeHandler} required id="blk"></input>
                             </div>
 
 
 
                             <div className='input8'>
-                                <label>Father's Name*</label>
+                                <label id="blk">Father's Name*</label>
 
-                                <input type="text" value={fathersName} onChange={fathersNameChangeHandler} required></input>
+                                <input type="text" value={fathersName} onChange={fathersNameChangeHandler} required id="blk"></input>
                             </div>
                             <div className='input8'>
-                                <label>Email Id</label>
-                                <input type="text" value={email} onChange={emailChangeHandler} required></input>
+                                <label id="blk">Email Id*</label>
+                                <input type="text" value={email} onChange={emailChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>Aadhar Card Number*</label>
-                                <input type="text" value={aadhar} onChange={aadharChangeHandler} required></input>
-
-                            </div>
-
-                            <div className='input8'>
-                                <label>PAN Card Number*</label>
-                                <input type="text" value={pan} onChange={(e) => setPan(e.target.value)} required></input>
+                                <label id="blk">Aadhar Card Number*</label>
+                                <input type="text" value={aadhar} onChange={aadharChangeHandler} required id="blk"></input>
 
                             </div>
 
                             <div className='input8'>
-                                <label>Mobile Number*</label>
+                                <label id="blk">PAN Card Number*</label>
+                                <input type="text" value={pan} onChange={(e) => setPan(e.target.value)} required id="blk"></input>
 
-                                <input type="text" value={mobileNum} onChange={mobileNumChangeHandler} required></input>
+                            </div>
+
+                            <div className='input8'>
+                                <label id="blk">Mobile Number*</label>
+
+                                <input type="text" value={mobileNum} onChange={mobileNumChangeHandler} required id="blk"></input>
                             </div>
                             <div className='input8'>
-                                <label>Date Of Birth*</label>
-                                <input type="date" value={dob} onChange={dobChangeHandler} required></input>
+                                <label id="blk">Date Of Birth*</label>
+                                <input type="date" value={dob} onChange={dobChangeHandler} required id="blk"></input>
 
                             </div>
-                            <h3>Residential
+                            <h3 id="blk">Residential
                                 Address
                             </h3>
                             <div className='input8'>
-                                <label>Address Line1 *</label>
+                                <label id="blk">Address Line1 *</label>
 
-                                <input type="text" value={addressLine1} onChange={addressLine1ChangeHandler} required></input>
+                                <input type="text" value={addressLine1} onChange={addressLine1ChangeHandler} required id="blk"></input>
                             </div>
                             <div className='input8'>
-                                <label>Address Line2*</label>
-                                <input type="text" value={addressLine2} onChange={addressLine2ChangeHandler} required></input>
-
-                            </div>
-                            <div className='input8'>
-                                <label>Landmark*</label>
-                                <input type="text" value={landmark} onChange={landmarkChangeHandler} required></input>
+                                <label id="blk">Address Line2*</label>
+                                <input type="text" value={addressLine2} onChange={addressLine2ChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>State*</label>
-                                <input type="text" value={state} onChange={stateChangeHandler} required></input>
+                                <label id="blk">Landmark*</label>
+                                <input type="text" value={landmark} onChange={landmarkChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>City*</label>
-                                <input type="text" value={city} onChange={cityChangeHandler} required></input>
+                                <label id="blk">State*</label>
+                                <input type="text" value={state} onChange={stateChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>Pincode*</label>
-                                <input type="text" value={pincode} onChange={pincodeChangeHandler} required></input>
+                                <label id="blk">City*</label>
+                                <input type="text" value={city} onChange={cityChangeHandler} required id="blk"></input>
 
                             </div>
-                            <h3>Permanent Address</h3>
+                            <div className='input8'>
+                                <label id="blk">Pincode*</label>
+                                <input type="text" value={pincode} onChange={pincodeChangeHandler} required id="blk"></input>
+
+                            </div>
+                            <h3 id="blk">Permanent Address</h3>
                             <div className="f">
 
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value={sameAsCurrent} onChange={() => {
                                         setSameAsCurrent(!sameAsCurrent);
-                                    }} id="permanentAddress" />
-                                    <label className="form-check-label" for="permanentAddress">
+                                    }} id="permanentAddress blk"  />
+                                    <label className="form-check-label" for="permanentAddress" id="blk">
                                         Same as current address
                                     </label>
                                 </div>
@@ -277,47 +277,47 @@ const Register = () => {
                             </div>
 
                             <div className='input8'>
-                                <label>Address Line1 *</label>
-                                <input disabled={sameAsCurrent} type="text" value={paddressLine1} onChange={paddressLine1ChangeHandler} required></input>
+                                <label id="blk">Address Line1 *</label>
+                                <input disabled={sameAsCurrent} type="text" value={paddressLine1} onChange={paddressLine1ChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>Address Line2*</label>
-                                <input disabled={sameAsCurrent} type="text" value={paddressLine2} onChange={paddressLine2ChangeHandler} required></input>
+                                <label id="blk">Address Line2*</label>
+                                <input disabled={sameAsCurrent} type="text" value={paddressLine2} onChange={paddressLine2ChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>Landmark*</label>
-                                <input disabled={sameAsCurrent} type="text" value={plandmark} onChange={plandmarkChangeHandler} required></input>
+                                <label id="blk">Landmark*</label>
+                                <input disabled={sameAsCurrent} type="text" value={plandmark} onChange={plandmarkChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>State*</label>
-                                <input disabled={sameAsCurrent} type="text" value={pstate} onChange={pstateChangeHandler} required></input>
+                                <label id="blk">State*</label>
+                                <input disabled={sameAsCurrent} type="text" value={pstate} onChange={pstateChangeHandler} required id="blk"></input>
 
                             </div>
                             <div className='input8'>
-                                <label>City*</label>
+                                <label id="blk">City*</label>
 
-                                <input disabled={sameAsCurrent} type="text" value={pcity} onChange={pcityChangeHandler} required></input>
+                                <input disabled={sameAsCurrent} type="text" value={pcity} onChange={pcityChangeHandler} required id="blk"></input>
                             </div>
                             <div className='input8'>
-                                <label>Pincode*</label>
-                                <input disabled={sameAsCurrent} type="text" value={ppincode} onChange={ppincodeChangeHandler} required></input>
+                                <label id="blk">Pincode*</label>
+                                <input disabled={sameAsCurrent} type="text" value={ppincode} onChange={ppincodeChangeHandler} required id="blk"></input>
 
                             </div>
 
 
-                            <h3>Occupation Detail</h3>
+                            <h3 id="blk">Occupation Detail</h3>
                             <div className='input4'>
-                                <label>Occupation Type*</label>
+                                <label id="blk">Occupation Type*</label>
                                 <select required value={occupationType} className="form-select" aria-label="Occupation Type" onChange={(e) => {
                                     setoccupationType(e.target.value);
                                 }}>
-                                    <option value="sel1">Select Occupation Type</option>
+                                    <option value="sel1" id="blk">Select Occupation Type</option>
                                     {["Private Sector", "Public Sector", "Governement Sector", "Business", "Student", "Self Employed", "Housewife", "Others"].map((k) => {
                                         return (
-                                            <option key={k} value={k}>{k}</option>
+                                            <option key={k} value={k} id="blk">{k}</option>
                                         );
                                     })}
                                 </select>
@@ -328,17 +328,17 @@ const Register = () => {
                                 <select required value={sourceOfIncome} className="form-select" aria-label="Source of  Income" onChange={(e) => {
                                     setsourceOfIncome(e.target.value);
                                 }}>
-                                    <option value="sel2">Select Source of Income</option>
+                                    <option value="sel2" id="blk">Select Source of Income</option>
                                     {["Manufacturing", "Trading", "Service", "Retailing", "Agriculture", "Real Estate", "Others"].map((k) => {
                                         return (
-                                            <option key={k} value={k}>{k}</option>
+                                            <option key={k} value={k} id="blk">{k}</option>
                                         );
                                     })}
                                 </select>
 
                             </div>
                             <div className='input4'>
-                                <label>Gross Annual Income*</label>
+                                <label id="blk">Gross Annual Income*</label>
 
                                 <select required value={grossAnnualIncome} className="form-select" aria-label="Gross Annual Income" onChange={(e) => {
                                     setgrossAnnualIncome(e.target.value);
@@ -346,14 +346,14 @@ const Register = () => {
                                     <option value="sel3">Select Gross Annual Income</option>
                                     {["< 1 Lakhs", "1 Lakh to 5 Lakhs", "5 Lakhs to 12 Lakhs", ">12 Lakhs"].map((k) => {
                                         return (
-                                            <option key={k} value={k}>{k}</option>
+                                            <option key={k} value={k} id="blk">{k}</option>
                                         );
                                     })}
                                 </select>
 
                             </div>
 
-                            <h3>Debit / ATM Card</h3>
+                            <h3 id="blk">Debit / ATM Card</h3>
 
                             <div className='k'>
 
@@ -387,16 +387,16 @@ const Register = () => {
                             <Container style={{marginTop: "50px"}}>
                                 <Row>
                                     <Col className='col-md-6 col-12'>
-                                        <label htmlFor="username" className="form-label">Username</label>
+                                        <label htmlFor="username" className="form-label" id="blk">Username</label>
                                         <input required minLength="8" type="text" value={username} onChange={(e) => setUsername(e.target.value)} id="username" className="form-control" aria-describedby="usernameHelp" />
                                         <div id="usernameHelp" className="form-text">
                                             Your username must be between 8-20 characters                                        </div>
-                                        <label htmlFor="password" className="form-label">Password</label>
+                                        <label htmlFor="password" className="form-label" id="blk">Password</label>
                                         <input required minLength="8" type="text" value={password} onChange={(e) => setPassword(e.target.value)} id="password" className="form-control" aria-describedby="passwordHelp" />
                                         <div id="passwordHelp" className="form-text">
                                             Your password must be 8-30 characters long, contain letters, characters and numbers.
                                         </div>
-                                        <label htmlFor="confPassword" className="form-label">Confirm Password</label>
+                                        <label htmlFor="confPassword" className="form-label" id="blk">Confirm Password</label>
                                         <input required minLength="8" type="text" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} id="confPassword" className="form-control" aria-describedby="confPasswordHelp" />
                                         <div id="confPasswordHelp" className="form-text">
                                             Password must match with confirm password                                        </div>

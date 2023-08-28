@@ -131,10 +131,10 @@ function TransactionForm() {
                         <Form onSubmit={submitHandler}>
 
                             <Form.Select required className='mt-2' aria-label="type" onChange={(e) => setTransactionType(e.target.value)}>
-                                <option value="sel">Select Transaction Type</option>
-                                <option value="IMPS">IMPS</option>
-                                <option value="RTGS">RTGS</option>
-                                <option value="NEFT">NEFT</option>
+                                <option value="sel" id="blk">Select Transaction Type</option>
+                                <option value="IMPS" id="blk">IMPS</option>
+                                <option value="RTGS" id="blk">RTGS</option>
+                                <option value="NEFT" id="blk">NEFT</option>
                             </Form.Select>
 
                             <select required className='form-select mt-4' name="accNum" id="accNum" onChange={(event) => {
@@ -143,10 +143,10 @@ function TransactionForm() {
                                     setSenderAccount(val);
                                 }
                             }}>
-                                <option value="sel" key="sel">Select Account</option>
+                                <option value="sel" key="sel" id="blk">Select Account</option>
                                 {accountDetails.map((ac) => {
                                     return (
-                                        <option value={ac.accountNo} key={ac.accountNo}>{ac.accountNo}</option>
+                                        <option value={ac.accountNo} key={ac.accountNo} id="blk">{ac.accountNo}</option>
                                     );
                                 })
                                 }

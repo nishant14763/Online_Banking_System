@@ -9,7 +9,7 @@
 }
 
 .r{
-    background-color: rgb(71, 168, 71);
+    background-color: rgb(113, 113, 220);
     width:100%;
     color:#f1f1f1;
     font-size: 40px;
@@ -40,7 +40,7 @@
     display:inline-block;
     border:none;
    
-    background:#faf2f2;
+    background: white;
 
 }
 .input{
@@ -60,7 +60,7 @@
     align-items: center;
 }
 #b1{
-    background-color: green;
+    background-color: rgb(113,113,220);
     color:#f1f1f1;
     border-radius:4px;
 }
